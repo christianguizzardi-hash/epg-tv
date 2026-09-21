@@ -5,31 +5,46 @@ from xml.dom import minidom
 from datetime import datetime, timedelta, timezone
 import requests
 
-# Lista canali mappata esattamente sui nomi del tuo provider
+# Mappatura completa basata sugli screenshot forniti
 CHANNELS = [
-    # Primafila con i nomi esatti visibili in app
-    {"id": "primafila1.it", "name": "IT| SKY PRIMAFILA PREMIERE 1 4K", "sky_id": "3501"},
-    {"id": "primafila2.it", "name": "IT| SKY PRIMAFILA PREMIERE 2 4K", "sky_id": "3502"},
-    {"id": "primafila3.it", "name": "IT| SKY PRIMAFILA PREMIERE 3 4K", "sky_id": "3503"},
-    {"id": "primafila4.it", "name": "IT| SKY PRIMAFILA PREMIERE 4 4K", "sky_id": "3504"},
-    {"id": "primafila5.it", "name": "IT| SKY PRIMAFILA PREMIERE 5 4K", "sky_id": "3505"},
-    {"id": "primafila6.it", "name": "IT| SKY PRIMAFILA PREMIERE 6 4K", "sky_id": "3506"},
-    {"id": "primafila7.it", "name": "IT| SKY PRIMAFILA PREMIERE 7 4K", "sky_id": "3507"},
-    {"id": "primafila8.it", "name": "IT| SKY PRIMAFILA PREMIERE 8 4K", "sky_id": "3508"},
-    {"id": "primafila9.it", "name": "IT| SKY PRIMAFILA PREMIERE 9 4K+", "sky_id": "3509"},
-    {"id": "primafila10.it", "name": "IT| SKY PRIMAFILA PREMIERE 10 4K", "sky_id": "3510"},
-    {"id": "primafila11.it", "name": "IT| SKY PRIMAFILA PREMIERE 11 4K", "sky_id": "3511"},
-    
-    # Variante senza "PREMIERE" o "4K" per massima compatibilità
-    {"id": "primafila1_alt.it", "name": "Sky Primafila 1", "sky_id": "3501"},
-    {"id": "primafila2_alt.it", "name": "Sky Primafila 2", "sky_id": "3502"},
-    {"id": "primafila3_alt.it", "name": "Sky Primafila 3", "sky_id": "3503"},
+    # --- PRIMAFILA PREMIERE ---
+    {"id": "primafila.vetrina", "name": "IT| SKY PRIMAFILA PREMIERE VETRINA HD", "sky_id": "3501"},
+    {"id": "primafila1.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 1 4K", "sky_id": "3501"},
+    {"id": "primafila2.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 2 4K", "sky_id": "3502"},
+    {"id": "primafila3.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 3 4K", "sky_id": "3503"},
+    {"id": "primafila4.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 4 4K", "sky_id": "3504"},
+    {"id": "primafila5.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 5 4K", "sky_id": "3505"},
+    {"id": "primafila6.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 6 4K", "sky_id": "3506"},
+    {"id": "primafila7.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 7 4K", "sky_id": "3507"},
+    {"id": "primafila8.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 8 4K", "sky_id": "3508"},
+    {"id": "primafila9.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 9 4K+", "sky_id": "3509"},
+    {"id": "primafila10.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 10 4K", "sky_id": "3510"},
+    {"id": "primafila11.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 11 4K", "sky_id": "3511"},
+    {"id": "primafila15.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 15 4K", "sky_id": "3515"},
+    {"id": "primafila16.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 16 4K", "sky_id": "3516"},
+    {"id": "primafila17.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 17 4K", "sky_id": "3517"},
+    {"id": "primafila18.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 18 4K", "sky_id": "3518"},
 
-    # DAZN
-    {"id": "dazn1.it", "name": "Zona DAZN", "sky_id": "214"},
-    {"id": "dazn2.it", "name": "Zona DAZN 2", "sky_id": "215"},
-    {"id": "dazn1_alt.it", "name": "IT| ZONA DAZN", "sky_id": "214"},
-    {"id": "dazn2_alt.it", "name": "IT| ZONA DAZN 2", "sky_id": "215"},
+    # --- PRIMAFILA UHD ---
+    {"id": "primafila.vetrinauhd", "name": "IT| VETRINA SKY PRIMAFILA UHD", "sky_id": "3501"},
+    {"id": "primafila1.uhd", "name": "IT| SKY PRIMAFILA 1 UHD", "sky_id": "3501"},
+    {"id": "primafila2.uhd", "name": "IT| SKY PRIMAFILA 2 UHD", "sky_id": "3502"},
+    {"id": "primafila3.uhd", "name": "IT| SKY PRIMAFILA 3 UHD", "sky_id": "3503"},
+    {"id": "primafila4.uhd", "name": "IT| SKY PRIMAFILA 4 UHD", "sky_id": "3504"},
+    {"id": "primafila5.uhd", "name": "IT| SKY PRIMAFILA 5 UHD", "sky_id": "3505"},
+    {"id": "primafila6.uhd", "name": "IT| SKY PRIMAFILA 6 UHD", "sky_id": "3506"},
+    {"id": "primafila7.uhd", "name": "IT| SKY PRIMAFILA 7 UHD", "sky_id": "3507"},
+    {"id": "primafila8.uhd", "name": "IT| SKY PRIMAFILA 8 UHD", "sky_id": "3508"},
+
+    # --- DAZN ---
+    {"id": "dazn.vetrina", "name": "IT| VETRINA DAZN", "sky_id": "214"},
+    {"id": "dazn.redbull", "name": "IT| DAZN REDBULL FHD", "sky_id": "214"},
+    {"id": "dazn.ch1", "name": "IT| DAZN CHANNEL FHD", "sky_id": "214"},
+    {"id": "dazn.ch2", "name": "IT| DAZN CHANNEL HD", "sky_id": "214"},
+    {"id": "dazn.ch3", "name": "IT| DAZN CHANNEL HEVC", "sky_id": "214"},
+    {"id": "dazn.ch4", "name": "IT| DAZN CHANNEL", "sky_id": "214"},
+    {"id": "dazn.z1", "name": "Zona DAZN", "sky_id": "214"},
+    {"id": "dazn.z2", "name": "Zona DAZN 2", "sky_id": "215"}
 ]
 
 HEADERS = {
