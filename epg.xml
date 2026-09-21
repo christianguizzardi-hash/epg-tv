@@ -1,78 +1,108 @@
 <?xml version="1.0" ?>
-<tv generator-info-name="GitHub Actions EPG Generator">
+<tv generator-info-name="GitHub Actions Sky EPG Generator">
+  <channel id="SkyCinemaUno.it">
+    <display-name>IT| SKY CINEMA UNO UHD</display-name>
+  </channel>
+  <channel id="SkyCinemaPlus24.it">
+    <display-name>IT| SKY CINEMA UNO24 UHD</display-name>
+  </channel>
+  <channel id="SkyCinemaDue.it">
+    <display-name>IT| SKY CINEMA DUE UHD</display-name>
+  </channel>
+  <channel id="SkyCinemaDuePlus24.it">
+    <display-name>IT| SKY CINEMA DUE24 UHD</display-name>
+  </channel>
+  <channel id="SkyCinemaCollection.it">
+    <display-name>IT| SKY CINEMA COLLECTION UHD</display-name>
+  </channel>
+  <channel id="SkyCinemaFamily.it">
+    <display-name>IT| SKY CINEMA FAMILY UHD</display-name>
+  </channel>
+  <channel id="SkyCinemaAction.it">
+    <display-name>IT| SKY CINEMA ACTION UHD</display-name>
+  </channel>
+  <channel id="SkyCinemaSuspense.it">
+    <display-name>IT| SKY CINEMA SUSPENSE UHD</display-name>
+  </channel>
+  <channel id="SkyCinemaRomance.it">
+    <display-name>IT| SKY CINEMA ROMANCE UHD</display-name>
+  </channel>
+  <channel id="SkyCinemaDrama.it">
+    <display-name>IT| SKY CINEMA DRAMA UHD</display-name>
+  </channel>
+  <channel id="SkyCinemaComedy.it">
+    <display-name>IT| SKY CINEMA COMEDY UHD</display-name>
+  </channel>
+  <channel id="SkyUno.it">
+    <display-name>IT| SKY UNO UHD</display-name>
+  </channel>
+  <channel id="SkyAtlantic.it">
+    <display-name>IT| SKY ATLANTIC UHD</display-name>
+  </channel>
+  <channel id="CrimeInvestigation.it">
+    <display-name>IT| SKY CRIME INVEST UHD</display-name>
+  </channel>
+  <channel id="ComedyCentral.it">
+    <display-name>IT| SKY COMEDY CENTRAL UHD</display-name>
+  </channel>
+  <channel id="Primafila1.it">
+    <display-name>IT| SKY PRIMAFILA 1</display-name>
+  </channel>
+  <channel id="Primafila2.it">
+    <display-name>IT| SKY PRIMAFILA 2</display-name>
+  </channel>
+  <channel id="Primafila3.it">
+    <display-name>IT| SKY PRIMAFILA 3</display-name>
+  </channel>
+  <channel id="Primafila4.it">
+    <display-name>IT| SKY PRIMAFILA 4</display-name>
+  </channel>
+  <channel id="Primafila5.it">
+    <display-name>IT| SKY PRIMAFILA 5</display-name>
+  </channel>
+  <channel id="Primafila6.it">
+    <display-name>IT| SKY PRIMAFILA 6</display-name>
+  </channel>
+  <channel id="Primafila7.it">
+    <display-name>IT| SKY PRIMAFILA 7</display-name>
+  </channel>
+  <channel id="Primafila8.it">
+    <display-name>IT| SKY PRIMAFILA 8</display-name>
+  </channel>
+  <channel id="Primafila9.it">
+    <display-name>IT| SKY PRIMAFILA 9</display-name>
+  </channel>
+  <channel id="Primafila10.it">
+    <display-name>IT| SKY PRIMAFILA 10</display-name>
+  </channel>
+  <channel id="Primafila11.it">
+    <display-name>IT| SKY PRIMAFILA 11</display-name>
+  </channel>
+  <channel id="Primafila12.it">
+    <display-name>IT| SKY PRIMAFILA 12</display-name>
+  </channel>
+  <channel id="Primafila13.it">
+    <display-name>IT| SKY PRIMAFILA 13</display-name>
+  </channel>
+  <channel id="Primafila14.it">
+    <display-name>IT| SKY PRIMAFILA 14</display-name>
+  </channel>
+  <channel id="Primafila15.it">
+    <display-name>IT| SKY PRIMAFILA 15</display-name>
+  </channel>
+  <channel id="Primafila16.it">
+    <display-name>IT| SKY PRIMAFILA 16</display-name>
+  </channel>
+  <channel id="Primafila17.it">
+    <display-name>IT| SKY PRIMAFILA 17</display-name>
+  </channel>
+  <channel id="Primafila18.it">
+    <display-name>IT| SKY PRIMAFILA 18</display-name>
+  </channel>
   <channel id="IT| SKY PRIMAFILA PREMIERE VETRINA HD">
     <display-name>IT| SKY PRIMAFILA PREMIERE VETRINA HD</display-name>
   </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 1 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 1 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 2 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 2 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 3 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 3 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 4 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 4 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 5 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 5 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 6 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 6 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 7 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 7 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 8 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 8 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 9 4K+">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 9 4K+</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 10 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 10 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 11 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 11 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 15 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 15 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 16 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 16 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 17 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 17 4K</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA PREMIERE 18 4K">
-    <display-name>IT| SKY PRIMAFILA PREMIERE 18 4K</display-name>
-  </channel>
   <channel id="IT| VETRINA SKY PRIMAFILA UHD">
     <display-name>IT| VETRINA SKY PRIMAFILA UHD</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA 1 UHD">
-    <display-name>IT| SKY PRIMAFILA 1 UHD</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA 2 UHD">
-    <display-name>IT| SKY PRIMAFILA 2 UHD</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA 3 UHD">
-    <display-name>IT| SKY PRIMAFILA 3 UHD</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA 4 UHD">
-    <display-name>IT| SKY PRIMAFILA 4 UHD</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA 5 UHD">
-    <display-name>IT| SKY PRIMAFILA 5 UHD</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA 6 UHD">
-    <display-name>IT| SKY PRIMAFILA 6 UHD</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA 7 UHD">
-    <display-name>IT| SKY PRIMAFILA 7 UHD</display-name>
-  </channel>
-  <channel id="IT| SKY PRIMAFILA 8 UHD">
-    <display-name>IT| SKY PRIMAFILA 8 UHD</display-name>
   </channel>
 </tv>
