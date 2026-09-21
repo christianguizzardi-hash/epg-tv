@@ -5,14 +5,31 @@ from xml.dom import minidom
 from datetime import datetime, timedelta, timezone
 import requests
 
+# Lista canali mappata esattamente sui nomi del tuo provider
 CHANNELS = [
-    {"id": "primafila1.it", "name": "Sky Primafila 1", "sky_id": "3501"},
-    {"id": "primafila2.it", "name": "Sky Primafila 2", "sky_id": "3502"},
-    {"id": "primafila3.it", "name": "Sky Primafila 3", "sky_id": "3503"},
-    {"id": "primafila4.it", "name": "Sky Primafila 4", "sky_id": "3504"},
-    {"id": "primafila5.it", "name": "Sky Primafila 5", "sky_id": "3505"},
+    # Primafila con i nomi esatti visibili in app
+    {"id": "primafila1.it", "name": "IT| SKY PRIMAFILA PREMIERE 1 4K", "sky_id": "3501"},
+    {"id": "primafila2.it", "name": "IT| SKY PRIMAFILA PREMIERE 2 4K", "sky_id": "3502"},
+    {"id": "primafila3.it", "name": "IT| SKY PRIMAFILA PREMIERE 3 4K", "sky_id": "3503"},
+    {"id": "primafila4.it", "name": "IT| SKY PRIMAFILA PREMIERE 4 4K", "sky_id": "3504"},
+    {"id": "primafila5.it", "name": "IT| SKY PRIMAFILA PREMIERE 5 4K", "sky_id": "3505"},
+    {"id": "primafila6.it", "name": "IT| SKY PRIMAFILA PREMIERE 6 4K", "sky_id": "3506"},
+    {"id": "primafila7.it", "name": "IT| SKY PRIMAFILA PREMIERE 7 4K", "sky_id": "3507"},
+    {"id": "primafila8.it", "name": "IT| SKY PRIMAFILA PREMIERE 8 4K", "sky_id": "3508"},
+    {"id": "primafila9.it", "name": "IT| SKY PRIMAFILA PREMIERE 9 4K+", "sky_id": "3509"},
+    {"id": "primafila10.it", "name": "IT| SKY PRIMAFILA PREMIERE 10 4K", "sky_id": "3510"},
+    {"id": "primafila11.it", "name": "IT| SKY PRIMAFILA PREMIERE 11 4K", "sky_id": "3511"},
+    
+    # Variante senza "PREMIERE" o "4K" per massima compatibilità
+    {"id": "primafila1_alt.it", "name": "Sky Primafila 1", "sky_id": "3501"},
+    {"id": "primafila2_alt.it", "name": "Sky Primafila 2", "sky_id": "3502"},
+    {"id": "primafila3_alt.it", "name": "Sky Primafila 3", "sky_id": "3503"},
+
+    # DAZN
     {"id": "dazn1.it", "name": "Zona DAZN", "sky_id": "214"},
     {"id": "dazn2.it", "name": "Zona DAZN 2", "sky_id": "215"},
+    {"id": "dazn1_alt.it", "name": "IT| ZONA DAZN", "sky_id": "214"},
+    {"id": "dazn2_alt.it", "name": "IT| ZONA DAZN 2", "sky_id": "215"},
 ]
 
 HEADERS = {
