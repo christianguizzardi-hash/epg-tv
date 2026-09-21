@@ -1,24 +1,57 @@
 <?xml version="1.0" ?>
 <tv generator-info-name="GitHub Actions EPG Generator">
   <channel id="primafila1.it">
-    <display-name>Sky Primafila 1</display-name>
+    <display-name>IT| SKY PRIMAFILA PREMIERE 1 4K</display-name>
   </channel>
   <channel id="primafila2.it">
-    <display-name>Sky Primafila 2</display-name>
+    <display-name>IT| SKY PRIMAFILA PREMIERE 2 4K</display-name>
   </channel>
   <channel id="primafila3.it">
-    <display-name>Sky Primafila 3</display-name>
+    <display-name>IT| SKY PRIMAFILA PREMIERE 3 4K</display-name>
   </channel>
   <channel id="primafila4.it">
-    <display-name>Sky Primafila 4</display-name>
+    <display-name>IT| SKY PRIMAFILA PREMIERE 4 4K</display-name>
   </channel>
   <channel id="primafila5.it">
-    <display-name>Sky Primafila 5</display-name>
+    <display-name>IT| SKY PRIMAFILA PREMIERE 5 4K</display-name>
+  </channel>
+  <channel id="primafila6.it">
+    <display-name>IT| SKY PRIMAFILA PREMIERE 6 4K</display-name>
+  </channel>
+  <channel id="primafila7.it">
+    <display-name>IT| SKY PRIMAFILA PREMIERE 7 4K</display-name>
+  </channel>
+  <channel id="primafila8.it">
+    <display-name>IT| SKY PRIMAFILA PREMIERE 8 4K</display-name>
+  </channel>
+  <channel id="primafila9.it">
+    <display-name>IT| SKY PRIMAFILA PREMIERE 9 4K+</display-name>
+  </channel>
+  <channel id="primafila10.it">
+    <display-name>IT| SKY PRIMAFILA PREMIERE 10 4K</display-name>
+  </channel>
+  <channel id="primafila11.it">
+    <display-name>IT| SKY PRIMAFILA PREMIERE 11 4K</display-name>
+  </channel>
+  <channel id="primafila1_alt.it">
+    <display-name>Sky Primafila 1</display-name>
+  </channel>
+  <channel id="primafila2_alt.it">
+    <display-name>Sky Primafila 2</display-name>
+  </channel>
+  <channel id="primafila3_alt.it">
+    <display-name>Sky Primafila 3</display-name>
   </channel>
   <channel id="dazn1.it">
     <display-name>Zona DAZN</display-name>
   </channel>
   <channel id="dazn2.it">
     <display-name>Zona DAZN 2</display-name>
+  </channel>
+  <channel id="dazn1_alt.it">
+    <display-name>IT| ZONA DAZN</display-name>
+  </channel>
+  <channel id="dazn2_alt.it">
+    <display-name>IT| ZONA DAZN 2</display-name>
   </channel>
 </tv>
