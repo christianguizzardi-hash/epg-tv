@@ -4,47 +4,36 @@ from xml.dom import minidom
 from datetime import datetime, timedelta, timezone
 import requests
 
-# Mappatura con NOMI ESATTI identici alla tua lista M3U
+# Mappatura basata al 100% sui tvg-name della tua playlist M3U
 CHANNELS = [
     # --- PRIMAFILA PREMIERE ---
-    {"id": "IT| SKY PRIMAFILA PREMIERE VETRINA HD", "name": "IT| SKY PRIMAFILA PREMIERE VETRINA HD", "sky_id": "3501"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 1 4K", "name": "IT| SKY PRIMAFILA PREMIERE 1 4K", "sky_id": "3501"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 2 4K", "name": "IT| SKY PRIMAFILA PREMIERE 2 4K", "sky_id": "3502"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 3 4K", "name": "IT| SKY PRIMAFILA PREMIERE 3 4K", "sky_id": "3503"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 4 4K", "name": "IT| SKY PRIMAFILA PREMIERE 4 4K", "sky_id": "3504"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 5 4K", "name": "IT| SKY PRIMAFILA PREMIERE 5 4K", "sky_id": "3505"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 6 4K", "name": "IT| SKY PRIMAFILA PREMIERE 6 4K", "sky_id": "3506"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 7 4K", "name": "IT| SKY PRIMAFILA PREMIERE 7 4K", "sky_id": "3507"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 8 4K", "name": "IT| SKY PRIMAFILA PREMIERE 8 4K", "sky_id": "3508"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 9 4K+", "name": "IT| SKY PRIMAFILA PREMIERE 9 4K+", "sky_id": "3509"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 10 4K", "name": "IT| SKY PRIMAFILA PREMIERE 10 4K", "sky_id": "3510"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 11 4K", "name": "IT| SKY PRIMAFILA PREMIERE 11 4K", "sky_id": "3511"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 15 4K", "name": "IT| SKY PRIMAFILA PREMIERE 15 4K", "sky_id": "3515"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 16 4K", "name": "IT| SKY PRIMAFILA PREMIERE 16 4K", "sky_id": "3516"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 17 4K", "name": "IT| SKY PRIMAFILA PREMIERE 17 4K", "sky_id": "3517"},
-    {"id": "IT| SKY PRIMAFILA PREMIERE 18 4K", "name": "IT| SKY PRIMAFILA PREMIERE 18 4K", "sky_id": "3518"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE VETRINA HD", "sky_id": "3501"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 1 4K", "sky_id": "3501"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 2 4K", "sky_id": "3502"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 3 4K", "sky_id": "3503"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 4 4K", "sky_id": "3504"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 5 4K", "sky_id": "3505"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 6 4K", "sky_id": "3506"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 7 4K", "sky_id": "3507"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 8 4K", "sky_id": "3508"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 9 4K+", "sky_id": "3509"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 10 4K", "sky_id": "3510"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 11 4K", "sky_id": "3511"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 15 4K", "sky_id": "3515"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 16 4K", "sky_id": "3516"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 17 4K", "sky_id": "3517"},
+    {"name": "IT| SKY PRIMAFILA PREMIERE 18 4K", "sky_id": "3518"},
 
     # --- PRIMAFILA UHD ---
-    {"id": "IT| VETRINA SKY PRIMAFILA UHD", "name": "IT| VETRINA SKY PRIMAFILA UHD", "sky_id": "3501"},
-    {"id": "IT| SKY PRIMAFILA 1 UHD", "name": "IT| SKY PRIMAFILA 1 UHD", "sky_id": "3501"},
-    {"id": "IT| SKY PRIMAFILA 2 UHD", "name": "IT| SKY PRIMAFILA 2 UHD", "sky_id": "3502"},
-    {"id": "IT| SKY PRIMAFILA 3 UHD", "name": "IT| SKY PRIMAFILA 3 UHD", "sky_id": "3503"},
-    {"id": "IT| SKY PRIMAFILA 4 UHD", "name": "IT| SKY PRIMAFILA 4 UHD", "sky_id": "3504"},
-    {"id": "IT| SKY PRIMAFILA 5 UHD", "name": "IT| SKY PRIMAFILA 5 UHD", "sky_id": "3505"},
-    {"id": "IT| SKY PRIMAFILA 6 UHD", "name": "IT| SKY PRIMAFILA 6 UHD", "sky_id": "3506"},
-    {"id": "IT| SKY PRIMAFILA 7 UHD", "name": "IT| SKY PRIMAFILA 7 UHD", "sky_id": "3507"},
-    {"id": "IT| SKY PRIMAFILA 8 UHD", "name": "IT| SKY PRIMAFILA 8 UHD", "sky_id": "3508"},
-
-    # --- DAZN ---
-    {"id": "IT| VETRINA DAZN", "name": "IT| VETRINA DAZN", "sky_id": "214"},
-    {"id": "IT| DAZN REDBULL FHD", "name": "IT| DAZN REDBULL FHD", "sky_id": "214"},
-    {"id": "IT| DAZN CHANNEL FHD", "name": "IT| DAZN CHANNEL FHD", "sky_id": "214"},
-    {"id": "IT| DAZN CHANNEL HD", "name": "IT| DAZN CHANNEL HD", "sky_id": "214"},
-    {"id": "IT| DAZN CHANNEL HEVC", "name": "IT| DAZN CHANNEL HEVC", "sky_id": "214"},
-    {"id": "IT| DAZN CHANNEL", "name": "IT| DAZN CHANNEL", "sky_id": "214"},
-    {"id": "IT| DAZN DIRETTA GOL SERIE A FHD", "name": "IT| DAZN DIRETTA GOL SERIE A FHD", "sky_id": "214"},
-    {"id": "IT| DAZN DIRETTA GOL SERIE A HD", "name": "IT| DAZN DIRETTA GOL SERIE A HD", "sky_id": "214"},
-    {"id": "IT| DAZN DIRETTA GOL SERIE A", "name": "IT| DAZN DIRETTA GOL SERIE A", "sky_id": "214"},
+    {"name": "IT| VETRINA SKY PRIMAFILA UHD", "sky_id": "3501"},
+    {"name": "IT| SKY PRIMAFILA 1 UHD", "sky_id": "3501"},
+    {"name": "IT| SKY PRIMAFILA 2 UHD", "sky_id": "3502"},
+    {"name": "IT| SKY PRIMAFILA 3 UHD", "sky_id": "3503"},
+    {"name": "IT| SKY PRIMAFILA 4 UHD", "sky_id": "3504"},
+    {"name": "IT| SKY PRIMAFILA 5 UHD", "sky_id": "3505"},
+    {"name": "IT| SKY PRIMAFILA 6 UHD", "sky_id": "3506"},
+    {"name": "IT| SKY PRIMAFILA 7 UHD", "sky_id": "3507"},
+    {"name": "IT| SKY PRIMAFILA 8 UHD", "sky_id": "3508"},
 ]
 
 HEADERS = {
@@ -68,7 +57,8 @@ def build_xmltv():
     tv = ET.Element("tv", {"generator-info-name": "GitHub Actions EPG Generator"})
 
     for ch in CHANNELS:
-        channel_elem = ET.SubElement(tv, "channel", {"id": ch["id"]})
+        # Usiamo il tvg-name esatto sia come id che come display-name
+        channel_elem = ET.SubElement(tv, "channel", {"id": ch["name"]})
         name_elem = ET.SubElement(channel_elem, "display-name")
         name_elem.text = ch["name"]
 
@@ -89,7 +79,7 @@ def build_xmltv():
                     prog = ET.SubElement(tv, "programme", {
                         "start": format_xmltv_date(start_dt),
                         "stop": format_xmltv_date(end_dt),
-                        "channel": ch["id"]
+                        "channel": ch["name"]
                     })
 
                     title = ET.SubElement(prog, "title", {"lang": "it"})
