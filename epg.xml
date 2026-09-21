@@ -1,57 +1,105 @@
 <?xml version="1.0" ?>
 <tv generator-info-name="GitHub Actions EPG Generator">
-  <channel id="primafila1.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE VETRINA HD">
+    <display-name>IT| SKY PRIMAFILA PREMIERE VETRINA HD</display-name>
+  </channel>
+  <channel id="IT| SKY PRIMAFILA PREMIERE 1 4K">
     <display-name>IT| SKY PRIMAFILA PREMIERE 1 4K</display-name>
   </channel>
-  <channel id="primafila2.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE 2 4K">
     <display-name>IT| SKY PRIMAFILA PREMIERE 2 4K</display-name>
   </channel>
-  <channel id="primafila3.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE 3 4K">
     <display-name>IT| SKY PRIMAFILA PREMIERE 3 4K</display-name>
   </channel>
-  <channel id="primafila4.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE 4 4K">
     <display-name>IT| SKY PRIMAFILA PREMIERE 4 4K</display-name>
   </channel>
-  <channel id="primafila5.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE 5 4K">
     <display-name>IT| SKY PRIMAFILA PREMIERE 5 4K</display-name>
   </channel>
-  <channel id="primafila6.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE 6 4K">
     <display-name>IT| SKY PRIMAFILA PREMIERE 6 4K</display-name>
   </channel>
-  <channel id="primafila7.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE 7 4K">
     <display-name>IT| SKY PRIMAFILA PREMIERE 7 4K</display-name>
   </channel>
-  <channel id="primafila8.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE 8 4K">
     <display-name>IT| SKY PRIMAFILA PREMIERE 8 4K</display-name>
   </channel>
-  <channel id="primafila9.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE 9 4K+">
     <display-name>IT| SKY PRIMAFILA PREMIERE 9 4K+</display-name>
   </channel>
-  <channel id="primafila10.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE 10 4K">
     <display-name>IT| SKY PRIMAFILA PREMIERE 10 4K</display-name>
   </channel>
-  <channel id="primafila11.it">
+  <channel id="IT| SKY PRIMAFILA PREMIERE 11 4K">
     <display-name>IT| SKY PRIMAFILA PREMIERE 11 4K</display-name>
   </channel>
-  <channel id="primafila1_alt.it">
-    <display-name>Sky Primafila 1</display-name>
+  <channel id="IT| SKY PRIMAFILA PREMIERE 15 4K">
+    <display-name>IT| SKY PRIMAFILA PREMIERE 15 4K</display-name>
   </channel>
-  <channel id="primafila2_alt.it">
-    <display-name>Sky Primafila 2</display-name>
+  <channel id="IT| SKY PRIMAFILA PREMIERE 16 4K">
+    <display-name>IT| SKY PRIMAFILA PREMIERE 16 4K</display-name>
   </channel>
-  <channel id="primafila3_alt.it">
-    <display-name>Sky Primafila 3</display-name>
+  <channel id="IT| SKY PRIMAFILA PREMIERE 17 4K">
+    <display-name>IT| SKY PRIMAFILA PREMIERE 17 4K</display-name>
   </channel>
-  <channel id="dazn1.it">
-    <display-name>Zona DAZN</display-name>
+  <channel id="IT| SKY PRIMAFILA PREMIERE 18 4K">
+    <display-name>IT| SKY PRIMAFILA PREMIERE 18 4K</display-name>
   </channel>
-  <channel id="dazn2.it">
-    <display-name>Zona DAZN 2</display-name>
+  <channel id="IT| VETRINA SKY PRIMAFILA UHD">
+    <display-name>IT| VETRINA SKY PRIMAFILA UHD</display-name>
   </channel>
-  <channel id="dazn1_alt.it">
-    <display-name>IT| ZONA DAZN</display-name>
+  <channel id="IT| SKY PRIMAFILA 1 UHD">
+    <display-name>IT| SKY PRIMAFILA 1 UHD</display-name>
   </channel>
-  <channel id="dazn2_alt.it">
-    <display-name>IT| ZONA DAZN 2</display-name>
+  <channel id="IT| SKY PRIMAFILA 2 UHD">
+    <display-name>IT| SKY PRIMAFILA 2 UHD</display-name>
+  </channel>
+  <channel id="IT| SKY PRIMAFILA 3 UHD">
+    <display-name>IT| SKY PRIMAFILA 3 UHD</display-name>
+  </channel>
+  <channel id="IT| SKY PRIMAFILA 4 UHD">
+    <display-name>IT| SKY PRIMAFILA 4 UHD</display-name>
+  </channel>
+  <channel id="IT| SKY PRIMAFILA 5 UHD">
+    <display-name>IT| SKY PRIMAFILA 5 UHD</display-name>
+  </channel>
+  <channel id="IT| SKY PRIMAFILA 6 UHD">
+    <display-name>IT| SKY PRIMAFILA 6 UHD</display-name>
+  </channel>
+  <channel id="IT| SKY PRIMAFILA 7 UHD">
+    <display-name>IT| SKY PRIMAFILA 7 UHD</display-name>
+  </channel>
+  <channel id="IT| SKY PRIMAFILA 8 UHD">
+    <display-name>IT| SKY PRIMAFILA 8 UHD</display-name>
+  </channel>
+  <channel id="IT| VETRINA DAZN">
+    <display-name>IT| VETRINA DAZN</display-name>
+  </channel>
+  <channel id="IT| DAZN REDBULL FHD">
+    <display-name>IT| DAZN REDBULL FHD</display-name>
+  </channel>
+  <channel id="IT| DAZN CHANNEL FHD">
+    <display-name>IT| DAZN CHANNEL FHD</display-name>
+  </channel>
+  <channel id="IT| DAZN CHANNEL HD">
+    <display-name>IT| DAZN CHANNEL HD</display-name>
+  </channel>
+  <channel id="IT| DAZN CHANNEL HEVC">
+    <display-name>IT| DAZN CHANNEL HEVC</display-name>
+  </channel>
+  <channel id="IT| DAZN CHANNEL">
+    <display-name>IT| DAZN CHANNEL</display-name>
+  </channel>
+  <channel id="IT| DAZN DIRETTA GOL SERIE A FHD">
+    <display-name>IT| DAZN DIRETTA GOL SERIE A FHD</display-name>
+  </channel>
+  <channel id="IT| DAZN DIRETTA GOL SERIE A HD">
+    <display-name>IT| DAZN DIRETTA GOL SERIE A HD</display-name>
+  </channel>
+  <channel id="IT| DAZN DIRETTA GOL SERIE A">
+    <display-name>IT| DAZN DIRETTA GOL SERIE A</display-name>
   </channel>
 </tv>
