@@ -1,50 +1,50 @@
 import os
-import re
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 from datetime import datetime, timedelta, timezone
 import requests
 
-# Mappatura completa basata sugli screenshot forniti
+# Mappatura con NOMI ESATTI identici alla tua lista M3U
 CHANNELS = [
     # --- PRIMAFILA PREMIERE ---
-    {"id": "primafila.vetrina", "name": "IT| SKY PRIMAFILA PREMIERE VETRINA HD", "sky_id": "3501"},
-    {"id": "primafila1.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 1 4K", "sky_id": "3501"},
-    {"id": "primafila2.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 2 4K", "sky_id": "3502"},
-    {"id": "primafila3.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 3 4K", "sky_id": "3503"},
-    {"id": "primafila4.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 4 4K", "sky_id": "3504"},
-    {"id": "primafila5.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 5 4K", "sky_id": "3505"},
-    {"id": "primafila6.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 6 4K", "sky_id": "3506"},
-    {"id": "primafila7.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 7 4K", "sky_id": "3507"},
-    {"id": "primafila8.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 8 4K", "sky_id": "3508"},
-    {"id": "primafila9.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 9 4K+", "sky_id": "3509"},
-    {"id": "primafila10.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 10 4K", "sky_id": "3510"},
-    {"id": "primafila11.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 11 4K", "sky_id": "3511"},
-    {"id": "primafila15.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 15 4K", "sky_id": "3515"},
-    {"id": "primafila16.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 16 4K", "sky_id": "3516"},
-    {"id": "primafila17.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 17 4K", "sky_id": "3517"},
-    {"id": "primafila18.premiere", "name": "IT| SKY PRIMAFILA PREMIERE 18 4K", "sky_id": "3518"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE VETRINA HD", "name": "IT| SKY PRIMAFILA PREMIERE VETRINA HD", "sky_id": "3501"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 1 4K", "name": "IT| SKY PRIMAFILA PREMIERE 1 4K", "sky_id": "3501"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 2 4K", "name": "IT| SKY PRIMAFILA PREMIERE 2 4K", "sky_id": "3502"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 3 4K", "name": "IT| SKY PRIMAFILA PREMIERE 3 4K", "sky_id": "3503"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 4 4K", "name": "IT| SKY PRIMAFILA PREMIERE 4 4K", "sky_id": "3504"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 5 4K", "name": "IT| SKY PRIMAFILA PREMIERE 5 4K", "sky_id": "3505"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 6 4K", "name": "IT| SKY PRIMAFILA PREMIERE 6 4K", "sky_id": "3506"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 7 4K", "name": "IT| SKY PRIMAFILA PREMIERE 7 4K", "sky_id": "3507"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 8 4K", "name": "IT| SKY PRIMAFILA PREMIERE 8 4K", "sky_id": "3508"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 9 4K+", "name": "IT| SKY PRIMAFILA PREMIERE 9 4K+", "sky_id": "3509"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 10 4K", "name": "IT| SKY PRIMAFILA PREMIERE 10 4K", "sky_id": "3510"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 11 4K", "name": "IT| SKY PRIMAFILA PREMIERE 11 4K", "sky_id": "3511"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 15 4K", "name": "IT| SKY PRIMAFILA PREMIERE 15 4K", "sky_id": "3515"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 16 4K", "name": "IT| SKY PRIMAFILA PREMIERE 16 4K", "sky_id": "3516"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 17 4K", "name": "IT| SKY PRIMAFILA PREMIERE 17 4K", "sky_id": "3517"},
+    {"id": "IT| SKY PRIMAFILA PREMIERE 18 4K", "name": "IT| SKY PRIMAFILA PREMIERE 18 4K", "sky_id": "3518"},
 
     # --- PRIMAFILA UHD ---
-    {"id": "primafila.vetrinauhd", "name": "IT| VETRINA SKY PRIMAFILA UHD", "sky_id": "3501"},
-    {"id": "primafila1.uhd", "name": "IT| SKY PRIMAFILA 1 UHD", "sky_id": "3501"},
-    {"id": "primafila2.uhd", "name": "IT| SKY PRIMAFILA 2 UHD", "sky_id": "3502"},
-    {"id": "primafila3.uhd", "name": "IT| SKY PRIMAFILA 3 UHD", "sky_id": "3503"},
-    {"id": "primafila4.uhd", "name": "IT| SKY PRIMAFILA 4 UHD", "sky_id": "3504"},
-    {"id": "primafila5.uhd", "name": "IT| SKY PRIMAFILA 5 UHD", "sky_id": "3505"},
-    {"id": "primafila6.uhd", "name": "IT| SKY PRIMAFILA 6 UHD", "sky_id": "3506"},
-    {"id": "primafila7.uhd", "name": "IT| SKY PRIMAFILA 7 UHD", "sky_id": "3507"},
-    {"id": "primafila8.uhd", "name": "IT| SKY PRIMAFILA 8 UHD", "sky_id": "3508"},
+    {"id": "IT| VETRINA SKY PRIMAFILA UHD", "name": "IT| VETRINA SKY PRIMAFILA UHD", "sky_id": "3501"},
+    {"id": "IT| SKY PRIMAFILA 1 UHD", "name": "IT| SKY PRIMAFILA 1 UHD", "sky_id": "3501"},
+    {"id": "IT| SKY PRIMAFILA 2 UHD", "name": "IT| SKY PRIMAFILA 2 UHD", "sky_id": "3502"},
+    {"id": "IT| SKY PRIMAFILA 3 UHD", "name": "IT| SKY PRIMAFILA 3 UHD", "sky_id": "3503"},
+    {"id": "IT| SKY PRIMAFILA 4 UHD", "name": "IT| SKY PRIMAFILA 4 UHD", "sky_id": "3504"},
+    {"id": "IT| SKY PRIMAFILA 5 UHD", "name": "IT| SKY PRIMAFILA 5 UHD", "sky_id": "3505"},
+    {"id": "IT| SKY PRIMAFILA 6 UHD", "name": "IT| SKY PRIMAFILA 6 UHD", "sky_id": "3506"},
+    {"id": "IT| SKY PRIMAFILA 7 UHD", "name": "IT| SKY PRIMAFILA 7 UHD", "sky_id": "3507"},
+    {"id": "IT| SKY PRIMAFILA 8 UHD", "name": "IT| SKY PRIMAFILA 8 UHD", "sky_id": "3508"},
 
     # --- DAZN ---
-    {"id": "dazn.vetrina", "name": "IT| VETRINA DAZN", "sky_id": "214"},
-    {"id": "dazn.redbull", "name": "IT| DAZN REDBULL FHD", "sky_id": "214"},
-    {"id": "dazn.ch1", "name": "IT| DAZN CHANNEL FHD", "sky_id": "214"},
-    {"id": "dazn.ch2", "name": "IT| DAZN CHANNEL HD", "sky_id": "214"},
-    {"id": "dazn.ch3", "name": "IT| DAZN CHANNEL HEVC", "sky_id": "214"},
-    {"id": "dazn.ch4", "name": "IT| DAZN CHANNEL", "sky_id": "214"},
-    {"id": "dazn.z1", "name": "Zona DAZN", "sky_id": "214"},
-    {"id": "dazn.z2", "name": "Zona DAZN 2", "sky_id": "215"}
+    {"id": "IT| VETRINA DAZN", "name": "IT| VETRINA DAZN", "sky_id": "214"},
+    {"id": "IT| DAZN REDBULL FHD", "name": "IT| DAZN REDBULL FHD", "sky_id": "214"},
+    {"id": "IT| DAZN CHANNEL FHD", "name": "IT| DAZN CHANNEL FHD", "sky_id": "214"},
+    {"id": "IT| DAZN CHANNEL HD", "name": "IT| DAZN CHANNEL HD", "sky_id": "214"},
+    {"id": "IT| DAZN CHANNEL HEVC", "name": "IT| DAZN CHANNEL HEVC", "sky_id": "214"},
+    {"id": "IT| DAZN CHANNEL", "name": "IT| DAZN CHANNEL", "sky_id": "214"},
+    {"id": "IT| DAZN DIRETTA GOL SERIE A FHD", "name": "IT| DAZN DIRETTA GOL SERIE A FHD", "sky_id": "214"},
+    {"id": "IT| DAZN DIRETTA GOL SERIE A HD", "name": "IT| DAZN DIRETTA GOL SERIE A HD", "sky_id": "214"},
+    {"id": "IT| DAZN DIRETTA GOL SERIE A", "name": "IT| DAZN DIRETTA GOL SERIE A", "sky_id": "214"},
 ]
 
 HEADERS = {
