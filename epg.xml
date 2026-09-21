@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<tv generator-info-name="GitHub Actions EPG Generator">
+  <channel id="primafila1.it">
+    <display-name>Sky Primafila 1</display-name>
+  </channel>
+  <channel id="primafila2.it">
+    <display-name>Sky Primafila 2</display-name>
+  </channel>
+  <channel id="primafila3.it">
+    <display-name>Sky Primafila 3</display-name>
+  </channel>
+  <channel id="primafila4.it">
+    <display-name>Sky Primafila 4</display-name>
+  </channel>
+  <channel id="primafila5.it">
+    <display-name>Sky Primafila 5</display-name>
+  </channel>
+  <channel id="dazn1.it">
+    <display-name>Zona DAZN</display-name>
+  </channel>
+  <channel id="dazn2.it">
+    <display-name>Zona DAZN 2</display-name>
+  </channel>
+</tv>
