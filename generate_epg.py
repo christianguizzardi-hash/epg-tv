@@ -4,8 +4,9 @@ from xml.dom import minidom
 from datetime import datetime, timedelta, timezone
 import requests
 
-# Canali con EPG Reale da API Sky
+# Canali con EPG Reale da API Sky (Inclusi i canali DAZN / Zona DAZN)
 SKY_REAL_CHANNELS = [
+    # Sky Cinema & Uno
     {"xml_id": "SkyCinemaUno.it", "display": "IT| SKY CINEMA UNO UHD", "sky_id": "3001"},
     {"xml_id": "SkyCinemaPlus24.it", "display": "IT| SKY CINEMA UNO24 UHD", "sky_id": "3002"},
     {"xml_id": "SkyCinemaDue.it", "display": "IT| SKY CINEMA DUE UHD", "sky_id": "3003"},
@@ -19,9 +20,17 @@ SKY_REAL_CHANNELS = [
     {"xml_id": "SkyCinemaComedy.it", "display": "IT| SKY CINEMA COMEDY UHD", "sky_id": "3010"},
     {"xml_id": "SkyUno.it", "display": "IT| SKY UNO UHD", "sky_id": "1001"},
     {"xml_id": "SkyAtlantic.it", "display": "IT| SKY ATLANTIC UHD", "sky_id": "1103"},
+    
+    # DAZN CHANNEL (Mappati su API Sky canale 214 - Zona DAZN 1)
+    {"xml_id": "IT| DAZN CHANNEL", "display": "IT| DAZN CHANNEL", "sky_id": "214"},
+    {"xml_id": "IT| DAZN CHANNEL FHD", "display": "IT| DAZN CHANNEL FHD", "sky_id": "214"},
+    {"xml_id": "IT| DAZN CHANNEL HD", "display": "IT| DAZN CHANNEL HD", "sky_id": "214"},
+    {"xml_id": "IT| DAZN CHANNEL HEVC", "display": "IT| DAZN CHANNEL HEVC", "sky_id": "214"},
+    {"xml_id": "IT| VETRINA DAZN", "display": "IT| VETRINA DAZN", "sky_id": "214"},
+    {"xml_id": "DaznChannel.it", "display": "IT| DAZN CHANNEL", "sky_id": "214"}
 ]
 
-# Lista canali Primafila e Premiere (mappati sui vari tvg-id possibili)
+# Lista canali Primafila e Premiere (Slot fittizi per ruotare i film)
 PRIMAFILA_CHANNELS = []
 
 for i in range(1, 19):
@@ -33,7 +42,7 @@ for i in range(1, 19):
         {"xml_id": f"IT| SKY PRIMAFILA {i} UHD", "display": f"IT| SKY PRIMAFILA {i} UHD"}
     ])
 
-# Vetrine
+# Vetrine Sky Primafila
 PRIMAFILA_CHANNELS.extend([
     {"xml_id": "IT| SKY PRIMAFILA PREMIERE VETRINA HD", "display": "IT| SKY PRIMAFILA PREMIERE VETRINA HD"},
     {"xml_id": "IT| VETRINA SKY PRIMAFILA UHD", "display": "IT| VETRINA SKY PRIMAFILA UHD"}
@@ -85,7 +94,7 @@ def generate_primafila_slots(tv, channel_id, channel_display):
         current_time = next_time
 
 def build_xmltv():
-    tv = ET.Element("tv", {"generator-info-name": "Sky & Primafila EPG Generator"})
+    tv = ET.Element("tv", {"generator-info-name": "Sky & DAZN EPG Generator"})
 
     all_channels = SKY_REAL_CHANNELS + PRIMAFILA_CHANNELS
 
@@ -96,7 +105,7 @@ def build_xmltv():
 
     today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-    # EPG Reale per Sky Cinema
+    # 1. EPG Reale per Sky e DAZN CHANNEL
     for ch in SKY_REAL_CHANNELS:
         events = fetch_sky_epg(ch["sky_id"], today_str)
         for ev in events:
@@ -120,7 +129,7 @@ def build_xmltv():
             except (KeyError, ValueError):
                 continue
 
-    # Slot automatici per Primafila / Premiere
+    # 2. Slot fittizi per Primafila / Premiere
     for ch in PRIMAFILA_CHANNELS:
         generate_primafila_slots(tv, ch["xml_id"], ch["display"])
 
